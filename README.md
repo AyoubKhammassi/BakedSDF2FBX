@@ -3,6 +3,9 @@
 ## About
 **BakedSDF2FBX** is a utility script for converting BakedSDF GLB files to FBX. This allows for BakedSDF meshes to be imported and used in real-time 3D tools like Unity and Unreal Engine. 
 
+Here are sample Unity and Unreal projects for importing and visualizing the FBX meshes created by `BakedSDF2FBX`:
+* [UnityBakedSDF](https://github.com/AyoubKhammassi/UnityBakedSDF)
+* [UnrealBakedSDF](https://github.com/AyoubKhammassi/UnrealBakedSDF)
 
 **BakedSDF** is a method for reconstructing high-quality meshes for photorealistic novel view synthesis. BakedSDF bakes high-quality triangle meshes that are equipped with a simple and fast view-dependent appearance model based on spherical Gaussians. 
 
@@ -46,8 +49,3 @@ If you only intend to use the `BakedSDF2FBX.py` script with the `--skip-fbx` fla
 In the original meshes, the data is passed in custom vertex attributes since it's supported by glTF. However, real-time 3D tools like Unity and Unreal Engine have limited support for glTF and especially for custom vertex attributes. 
 
 **BakedSDF2FBX** encodes all the required data for each spherical gaussian in one UV channel. The vertex shader that will be used later to render the mesh decodes the data from the UV. The detailed areas of the BakedSDF meshes use three spherical gaussians so the output encoded output will have three sets of UVs. The less detailed important areas of the mesh use only one spherical gaussian, but the script will ignore those in order to reduce the size of the mesh.
-
-
-
-## References
-[BakedSDF: Meshing Neural SDFs for Real-Time View Synthesis](https://bakedsdf.github.io/)
